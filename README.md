@@ -6,4 +6,4 @@
 
 ## Overview
 
-In this project
+In this project we will be creating a Ruby Command Line Interface (CLI) to an external data source.
