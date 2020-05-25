@@ -8,18 +8,19 @@ require 'pry'
 class GitApi
     #Github Jobs API
     @@url = 'https://jobs.github.com/positions.json'
-    def api
-        uri = URI.parse(@@url)
-        response = Net::HTTP.get_response(uri)
-        response.body
-        puts JSON.parse(response.body)
-    end
 
     def get_request
         rest = RestClient.get(@@url, headers={})
-        data = JSON.parse(rest.body)
-        puts data
+        rest.body
+    end
+
+    def jobs
+        jobs = JSON.parse(self.get_request)
+
+        jobs.collect do |job|
+            puts jobs
+        end
     end
 end
 
-GitApi.new.get_request
+GitApi.new.jobs
