@@ -5,7 +5,8 @@ require 'json'
 require 'rest-client'
 require 'pry'
 
-class WebScraper
+class GitApi
+    #Github Jobs API
     @@url = 'https://jobs.github.com/positions.json'
     def api
         uri = URI.parse(@@url)
@@ -15,9 +16,10 @@ class WebScraper
     end
 
     def get_request
-        rest = RestClient.get(@@url)
+        rest = RestClient.get(@@url, headers={})
         data = JSON.parse(rest.body)
+        puts data
     end
 end
 
-WebScraper.new.get_request
+GitApi.new.get_request
