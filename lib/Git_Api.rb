@@ -21,6 +21,8 @@ class GitApi
 
         jobs.collect do |job|
             job['title']
+            job['type']
+            job['location']
         end
     end
 
