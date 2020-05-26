@@ -1,9 +1,9 @@
 class User
-    attr_reader :name
+    attr_reader :title
     @@all = []
 
-    def initialize(name)
-        @name = name
+    def initialize(title)
+        @title = title
         @@all << self
     end
 

@@ -2,4 +2,6 @@
 require 'bundler/setup'
 Bundler.require(:default)
 
-require '../lib/web_sraper.rb'
+require '../lib/Git_Api.rb'
+require '../lib/Git_Cli.rb'
+require '../lib/User.rb'

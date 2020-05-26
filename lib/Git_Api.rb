@@ -24,6 +24,7 @@ class GitApi
             job['type']
             job['location']
         end
+        #jobs
     end
 
 end
