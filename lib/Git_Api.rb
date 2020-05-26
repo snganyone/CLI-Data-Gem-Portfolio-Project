@@ -2,25 +2,28 @@ require 'open-uri'
 require 'nokogiri'
 require 'net/http'
 require 'json'
-require 'rest-client'
+require 'excon'
 require 'pry'
 
 class GitApi
     #Github Jobs API
     @@url = 'https://jobs.github.com/positions.json'
+    #Excon Connection
+    @@connection = Excon.new(@@url)
 
     def get_request
-        rest = RestClient.get(@@url, headers={})
-        rest.body
+        response = @@connection.get
+        response.body
     end
 
-    def jobs
+    def get_response
         jobs = JSON.parse(self.get_request)
 
         jobs.collect do |job|
-            puts jobs
+            job['title']
         end
     end
+
 end
 
-GitApi.new.jobs
+puts GitApi.new.get_response
