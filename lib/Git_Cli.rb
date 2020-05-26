@@ -4,6 +4,7 @@ require 'colorize'
 class GitCli
 
     def run
+        self.welcome
     end
 
 
