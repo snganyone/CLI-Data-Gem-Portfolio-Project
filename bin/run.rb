@@ -1,3 +1,6 @@
-require_relative '..lib/Git_Cli.rb'
+#!/usr/bin/env ruby
+$LOAD_PATH << '../lib'
 
-Git_Cli.new.run
+require "Git_Cli.rb"
+
+GitCli.new.run
