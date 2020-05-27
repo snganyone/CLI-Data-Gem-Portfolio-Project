@@ -6,7 +6,8 @@ class GitCli
     def run
         welcome
         spinner
-        #goodbye
+        
+        goodbye
         main
     end
     # Displays a welcome message
@@ -33,6 +34,7 @@ class GitCli
             printf("\r Loading %s", spinner.next)
             sleep(0.1)
         end
+        puts "\n"
     end
 
     #Handles input and output
