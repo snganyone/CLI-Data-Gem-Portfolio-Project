@@ -6,10 +6,10 @@ class GitCli
     def run
         welcome
         spinner
-        
         goodbye
         main
     end
+
     # Displays a welcome message
     def welcome
         puts "Welcome to Github Jobs"
@@ -17,6 +17,9 @@ class GitCli
 
     def goodbye
         puts "Thanks for visiting. Goodbye..."
+    end
+
+    def print_jobs
     end
 
     # Prints a text-based "spinner" element while work occurs.
