@@ -1,8 +1,8 @@
-class User
+class Job
     attr_reader :title, :id, :description, :url, :type, :location
     @@all = []
 
-    def initialize(id=nil, title=nil)
+    def initialize()
         @id = id
         @title = title
         @@all << self

@@ -9,5 +9,6 @@ gem 'nokogiri', '1.10.8'
 gem 'json'
 gem 'rest-client'
 gem 'excon'
+gem 'colorize'
 
 # gem update --system
