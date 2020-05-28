@@ -19,9 +19,9 @@ class GitApi
     def get_response
         jobs = JSON.parse(self.get_request)
 
-        jobs.map.with_index do |job, idx|
+        jobs.map do |job|
             #id = job['id']
-            #title = job['title']
+            job['title']
             #type = job['type']
             #description = job['description']
             #url = job['url']

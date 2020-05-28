@@ -2,7 +2,6 @@
 require 'bundler/setup'
 Bundler.require(:default)
 
-require '../lib/Git_Api.rb'
-require '../lib/Git_Cli.rb'
-require '../lib/User.rb'
-require '../bin/run.rb'
+require_relative '../lib/Git_Api.rb'
+require_relative '../lib/Git_Cli.rb'
+require_relative '../lib/User.rb'

@@ -1,7 +1,8 @@
 require 'excon'
-require 'colorize'
+#require 'colorize'
 
 class GitCli
+    #Handles Input and Output
 
     def run
         welcome
