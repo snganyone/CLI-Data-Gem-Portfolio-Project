@@ -2,7 +2,7 @@ class Job
     attr_reader :title, :id, :description, :url, :type, :location
     @@all = []
 
-    def initialize()
+    def initialize(id, title)
         @id = id
         @title = title
         @@all << self

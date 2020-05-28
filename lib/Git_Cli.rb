@@ -20,9 +20,6 @@ class GitCli
         puts "Thanks for visiting. Goodbye..."
     end
 
-    def print_jobs
-    end
-
     # Prints a text-based "spinner" element while work occurs.
     def spinner
         spinner = Enumerator.new do |e|

@@ -5,6 +5,8 @@ require 'json'
 require 'excon'
 require 'pry'
 
+require_relative './Job.rb'
+
 class GitApi
     #Github Jobs API
     @@url = 'https://jobs.github.com/positions.json'
@@ -18,20 +20,17 @@ class GitApi
 
     def get_response
         jobs = JSON.parse(self.get_request)
+    end
 
-        jobs.map do |job|
-            #id = job['id']
-            #job['title']
-            #type = job['type']
-            #description = job['description']
-            #url = job['url']
-            #location = job['location']
-            #puts "#{job['title']} #{idx + 1}"
-            #User.new(idx, job['title'])
+    def create_jobs
+        self.get_response.map.with_index do |job, idx|
+            #puts "#{job['description']} #{idx + 1}"
+            #Create Job instances
+            Job.new(idx, job['title'])
         end
         #jobs
     end
 
 end
 
-puts GitApi.new.get_response
+puts GitApi.new.create_jobs
