@@ -21,7 +21,7 @@ class GitApi
 
         jobs.map do |job|
             #id = job['id']
-            job['title']
+            #job['title']
             #type = job['type']
             #description = job['description']
             #url = job['url']

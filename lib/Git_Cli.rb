@@ -8,7 +8,7 @@ class GitCli
         welcome
         spinner
         goodbye
-        main
+        #main
     end
 
     # Displays a welcome message

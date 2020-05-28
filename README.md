@@ -2,7 +2,7 @@
 
 ## Objectives
 
-- Provide acess to data from a webpage
+- Provide access to data from a webpage
 
 ## Overview
 
