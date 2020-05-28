@@ -1,6 +1,8 @@
 require 'excon'
 require 'colorize'
 
+require './Git_Api.rb'
+
 class GitCli
     #Handles Input and Output
 

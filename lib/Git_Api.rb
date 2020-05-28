@@ -24,13 +24,14 @@ class GitApi
 
     def create_jobs
         self.get_response.map.with_index do |job, idx|
-            #puts "#{job['description']} #{idx + 1}"
+            title = job['title']
+            type = job['type']
+            url = job['url']
+            description = job['description']
+            id = idx + 1
             #Create Job instances
-            Job.new(idx, job['title'])
+            jobs = Job.new(id, title, type, url, description)
         end
-        #jobs
     end
 
 end
-
-puts GitApi.new.create_jobs
