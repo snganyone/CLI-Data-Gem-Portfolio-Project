@@ -28,9 +28,10 @@ class GitApi
             type = job['type']
             url = job['url']
             description = job['description']
+            location = job['location']
             id = idx + 1
             #Create Job instances
-            jobs = Job.new(id, title, type, url, description)
+            jobs = Job.new(id, title, type, url, location, description)
         end
     end
 
