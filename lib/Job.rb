@@ -17,6 +17,7 @@ class Job
     end
 
     def self.find(id)
-        self.all[id-1]
+        idx = id.to_i - 1
+        all[idx]
     end
 end
