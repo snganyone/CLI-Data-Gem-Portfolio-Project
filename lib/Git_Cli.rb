@@ -10,13 +10,13 @@ class GitCli
         welcome
         spinner
         GitApi.new.create_jobs
+        print_jobs
         main
         goodbye
     end
 
     
     def main
-        print_jobs
         prompt
         input
     end
@@ -38,6 +38,10 @@ class GitCli
         listings = Job.all.each{|post| puts "#{post.id} #{post.title}"}
     end
 
+    def print_error
+        puts "Invalid selection please try again!"
+    end
+
 
     # I/O
     def prompt
@@ -51,6 +55,11 @@ class GitCli
     #Checks if input is valid
     def valid_id?(id)
         id = id.to_i #converts id to an integer value
+        if id < 1 || id > Job.all.size
+            print_error
+            main
+        end
+        id
     end
 
     # Prints a text-based "spinner" element while work occurs.
