@@ -10,6 +10,7 @@ class GitCli
         welcome
         spinner
         GitApi.new.create_jobs
+        print_jobs
         goodbye
         #main
     end
@@ -21,6 +22,10 @@ class GitCli
 
     def goodbye
         puts "Thanks for visiting. Goodbye..."
+    end
+
+    def print_jobs
+        listings = Job.all.each{|post| puts post.title}
     end
 
     # Prints a text-based "spinner" element while work occurs.
