@@ -18,7 +18,7 @@ class GitCli
     
     def main
         prompt
-        input
+        id = valid_id?(input)
     end
 
     # Print Messages
@@ -57,6 +57,7 @@ class GitCli
         id = id.to_i #converts id to an integer value
         if id < 1 || id > Job.all.size
             print_error
+            sleep(0.5)
             main
         end
         id
