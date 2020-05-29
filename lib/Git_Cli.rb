@@ -63,6 +63,10 @@ class GitCli
         id
     end
 
+    def find_by_id(id)
+        Job.all.find{|post| post.id == id}
+    end
+
     # Prints a text-based "spinner" element while work occurs.
     def spinner
         spinner = Enumerator.new do |e|
