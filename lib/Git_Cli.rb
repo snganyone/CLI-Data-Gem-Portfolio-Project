@@ -1,7 +1,7 @@
 require 'excon'
 require 'colorize'
 
-require './Git_Api.rb'
+require_relative './Git_Api.rb'
 
 class GitCli
     #Handles Input and Output
@@ -9,6 +9,7 @@ class GitCli
     def run
         welcome
         spinner
+        GitApi.new.create_jobs
         goodbye
         #main
     end
