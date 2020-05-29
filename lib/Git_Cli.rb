@@ -18,23 +18,39 @@ class GitCli
     def main
         print_jobs
         prompt
+        input
     end
+
+    # Print Messages
 
     # Displays a welcome message
     def welcome
         puts "Welcome to Github Jobs"
     end
 
+    # Displays a goodby message
     def goodbye
         puts "Thanks for visiting. Goodbye..."
     end
 
+    #Prints Job Postings
     def print_jobs
         listings = Job.all.each{|post| puts "#{post.id} #{post.title}"}
     end
 
+
+    # I/O
     def prompt
         puts "Please select a position by its number to learn more"
+    end
+
+    def input
+        gets.chomp
+    end
+
+    #Checks if input is valid
+    def valid_id?(id)
+        id = id.to_i #converts id to an integer value
     end
 
     # Prints a text-based "spinner" element while work occurs.
