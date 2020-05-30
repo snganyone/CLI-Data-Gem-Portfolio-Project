@@ -16,8 +16,11 @@ class Job
         @@all
     end
 
-    def self.find(id)
+    def self.find_by_id(id)
         idx = id.to_i - 1
         all[idx]
+    end
+
+    def self.find_by_location(location)
     end
 end

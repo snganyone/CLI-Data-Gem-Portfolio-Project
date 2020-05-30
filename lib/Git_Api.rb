@@ -35,4 +35,9 @@ class GitApi
         end
     end
 
+
+    def job_info(location)
+        query = Job.find_by_location(location)
+        res = Excon.get("#{@@url}#{location}")
+    end
 end
