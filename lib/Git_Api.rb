@@ -31,12 +31,17 @@ class GitApi
             location = job['location']
             id = idx + 1
             #Create Job instances
-            jobs = Job.new(id, title, type, url, location, description)
+            Job.new(id, title, type, url, location, description)
         end
     end
 
 
     def job_info(id)
         select = Job.find_by_id(id)
+        select
     end
 end
+
+info = GitApi.new
+puts info.job_info(1)
+#binding.pry
