@@ -1,3 +1,4 @@
+require 'pry'
 class Job
     attr_reader :title, :id, :description, :url, :type, :location
     @@all = []
@@ -16,11 +17,13 @@ class Job
         @@all
     end
 
-    def self.find_by_id(id)
+    def find_by_id(id)
         idx = id.to_i - 1
-        all[idx]
+        @@all[idx]
     end
 
-    def self.find_by_location(location)
-    end
 end
+
+post = Job.new(1, 'engineer', 'full time', 'www.github.com', 'New York', 'Writes code')
+puts post.find_by_id(1)
+binding.pry
