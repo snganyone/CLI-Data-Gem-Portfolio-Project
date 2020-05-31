@@ -81,10 +81,11 @@ class GitCli
     #Displays Job Details/Information
     def display_details(post)
         puts Rainbow("***********************************").green
-        puts Rainbow("#{post.title}").yellow
-        puts Rainbow("#{post.type}").yellow
-        puts Rainbow("#{post.location}").yellow
-        puts Rainbow("#{post.description}").yellow
+        puts Rainbow("#{post.title}").peru
+        puts Rainbow("#{post.type}").peru
+        puts Rainbow("#{post.location}").peru
+        puts Rainbow("#{post.url}").peru
+        puts Rainbow("#{post.description}").peru
         puts Rainbow("***********************************").green
     end
     
