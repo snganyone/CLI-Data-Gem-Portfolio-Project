@@ -13,7 +13,6 @@ class GitCli
         print_jobs
         main
     end
-
     
     def main
         prompt
@@ -41,10 +40,12 @@ class GitCli
         listings = Job.all.each{|post| puts "#{post.id} #{post.title}"}
     end
 
+    #Prints an Error when input is invalid
     def print_error
         puts "Invalid selection please try again!"
     end
-
+    
+    #Loops over main if user selects another job
     def continue
         puts "Would you like more information about another job posting? (yes/no)"
     end
@@ -76,6 +77,7 @@ class GitCli
         selection
     end
 
+    #Displays Job Details/Information
     def display_details(post)
         puts "#{post.title}"
         puts "#{post.type}"
@@ -113,5 +115,4 @@ class GitCli
         puts "\n"
     end
 
-    #Handles input and output
 end
