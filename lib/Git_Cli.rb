@@ -12,13 +12,16 @@ class GitCli
         GitApi.new.create_jobs
         print_jobs
         main
-        goodbye
     end
 
     
     def main
         prompt
         id = valid_id?(input)
+        job_post = job_details(id)
+        display_details(job_post)
+        continue
+        choice?(continue_search)
     end
 
     # Print Messages
@@ -42,6 +45,10 @@ class GitCli
         puts "Invalid selection please try again!"
     end
 
+    def continue
+        puts "Would you like more information about another job posting? (yes/no)"
+    end
+
 
     # I/O
     def prompt
@@ -52,6 +59,31 @@ class GitCli
         gets.chomp
     end
 
+    def continue_search
+        gets.chomp
+    end
+
+    def choice?(answer)
+        if answer == 'yes'
+            main
+        else
+            goodbye
+        end
+    end
+    
+    def job_details(id)
+        selection = Job.find_by_id(id)
+        selection
+    end
+
+    def display_details(post)
+        puts "#{post.title}"
+        puts "#{post.type}"
+        puts "#{post.location}"
+        puts "#{post.description}"
+    end
+    
+
     #Checks if input is valid
     def valid_id?(id)
         id = id.to_i #converts id to an integer value
@@ -61,10 +93,6 @@ class GitCli
             main
         end
         id
-    end
-
-    def find_by_id(id)
-        Job.all.find{|post| post.id == id}
     end
 
     # Prints a text-based "spinner" element while work occurs.
