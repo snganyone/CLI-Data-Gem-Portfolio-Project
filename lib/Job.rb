@@ -1,4 +1,3 @@
-require 'pry'
 class Job
     attr_reader :title, :id, :description, :url, :type, :location
     @@all = []

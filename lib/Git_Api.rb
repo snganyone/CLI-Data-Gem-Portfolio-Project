@@ -1,6 +1,3 @@
-require 'open-uri'
-require 'nokogiri'
-require 'net/http'
 require 'json'
 require 'excon'
 require 'pry'
