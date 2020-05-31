@@ -28,7 +28,7 @@ class GitCli
 
     # Displays a welcome message
     def welcome
-        puts "Welcome to Github Jobs"
+        puts Rainbow("Welcome to Github Jobs").indianred.bright.underline
     end
 
     # Displays a goodby message
