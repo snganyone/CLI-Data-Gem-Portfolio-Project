@@ -1,5 +1,6 @@
 require 'excon'
 require 'colorize'
+require 'rainbow'
 
 require_relative './Git_Api.rb'
 
@@ -79,6 +80,7 @@ class GitCli
 
     #Displays Job Details/Information
     def display_details(post)
+        puts "-------------------------------".colorize(:green)
         puts "#{post.title}"
         puts "#{post.type}"
         puts "#{post.location}"

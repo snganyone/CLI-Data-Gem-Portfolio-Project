@@ -10,5 +10,6 @@ gem 'json'
 gem 'rest-client'
 gem 'excon'
 gem 'colorize'
+gem 'rainbow', '~> 3.0'
 
 # gem update --system
