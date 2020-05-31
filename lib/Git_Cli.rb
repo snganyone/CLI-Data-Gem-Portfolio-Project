@@ -33,12 +33,12 @@ class GitCli
 
     # Displays a goodby message
     def goodbye
-        puts "Thanks for visiting. Goodbye..."
+        puts Rainbow("Thanks for visiting. Goodbye...").indianred.bright.underline
     end
 
     #Prints Job Postings
     def print_jobs
-        listings = Job.all.each{|post| puts "#{post.id} #{post.title}"}
+        listings = Job.all.each{|post| puts Rainbow("#{post.id} #{post.title}").cyan}
     end
 
     #Prints an Error when input is invalid
@@ -80,11 +80,12 @@ class GitCli
 
     #Displays Job Details/Information
     def display_details(post)
-        puts "-------------------------------".colorize(:green)
-        puts "#{post.title}"
-        puts "#{post.type}"
-        puts "#{post.location}"
-        puts "#{post.description}"
+        puts Rainbow("***********************************").green
+        puts Rainbow("#{post.title}").yellow
+        puts Rainbow("#{post.type}").yellow
+        puts Rainbow("#{post.location}").yellow
+        puts Rainbow("#{post.description}").yellow
+        puts Rainbow("***********************************").green
     end
     
 
