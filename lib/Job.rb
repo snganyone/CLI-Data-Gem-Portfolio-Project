@@ -23,7 +23,3 @@ class Job
     end
 
 end
-
-post = Job.new(1, 'engineer', 'full time', 'www.github.com', 'New York', 'Writes code')
-puts post.find_by_id(1)
-binding.pry
