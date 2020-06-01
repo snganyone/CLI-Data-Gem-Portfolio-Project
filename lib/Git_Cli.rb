@@ -1,9 +1,3 @@
-require 'excon'
-require 'colorize'
-require 'rainbow'
-
-require_relative './Git_Api.rb'
-
 class GitCli
     #Handles Input and Output
 
