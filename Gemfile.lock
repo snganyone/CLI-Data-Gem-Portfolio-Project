@@ -6,6 +6,8 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     excon (0.73.0)
+    html2text (0.3.1)
+      nokogiri (~> 1.10.3)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -37,6 +39,7 @@ PLATFORMS
 DEPENDENCIES
   colorize
   excon
+  html2text (~> 0.3.1)
   json
   nokogiri (= 1.10.8)
   pry

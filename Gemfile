@@ -11,5 +11,6 @@ gem 'rest-client'
 gem 'excon'
 gem 'colorize'
 gem 'rainbow', '~> 3.0'
+gem 'html2text', '~> 0.3.1'
 
 # gem update --system

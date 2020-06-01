@@ -1,9 +1,3 @@
-require 'json'
-require 'excon'
-require 'pry'
-
-require_relative './Job.rb'
-
 class GitApi
     #Github Jobs API
     @@url = 'https://jobs.github.com/positions.json'
@@ -25,10 +19,12 @@ class GitApi
             type = job['type']
             url = job['url']
             description = job['description']
+            #Convert HTML to text!
+            desc = Html2Text.convert(description)
             location = job['location']
             id = idx + 1
             #Create Job instances
-            Job.new(id, title, type, url, location, description)
+            Job.new(id, title, type, url, location, desc)
         end
     end
 
