@@ -10,3 +10,7 @@
 ## Overview
 
 In this project we will be creating a Ruby Command Line Interface (CLI) to access data from the Github Jobs API. :briefcase:
+
+## Contributers Guide
+
+This project is intended to be a safe and welcoming space for collaboration. 
