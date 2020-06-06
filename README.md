@@ -2,7 +2,7 @@
 
 ## Objectives
 
-- Provde access to data using an API 
+- Provide access to data using an API 
 - Create a command line interface
 - Web Scraping
 - Handle user Input/Output
