@@ -13,7 +13,7 @@ class GitCli
     
     def main
         print_jobs
-        search
+        prompt
         id = validate_id(input)
         if id == false
             main
