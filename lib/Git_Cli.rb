@@ -31,7 +31,7 @@ class GitCli
         puts Rainbow("Welcome to Github Jobs").indianred.bright.underline
     end
 
-    # Displays a goodby message
+    # Displays a goodbye message
     def goodbye
         puts Rainbow("Thanks for visiting. Goodbye...").indianred.bright.underline
     end
@@ -69,7 +69,7 @@ class GitCli
 
     # I/O
     def prompt
-        puts "Please select a position by its number to learn more"
+        puts "Please select a position you would like to know more about."
     end
 
     def input
@@ -109,13 +109,6 @@ class GitCli
     end
 
 
-    def search
-        prompt
-        choice = gets.chomp
-        if choice == 'exit'
-            goodbye
-        end
-    end
     # Prints a text-based "spinner" element while work occurs.
     def spinner
         spinner = Enumerator.new do |e|
