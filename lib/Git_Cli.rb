@@ -12,7 +12,6 @@ class GitCli
     end
     
     def main
-        print_jobs
         prompt
         id = validate_id(input)
         if id == false
@@ -25,6 +24,8 @@ class GitCli
     end
 
     # Print Messages
+
+
 
     # Displays a welcome message
     def welcome
@@ -69,7 +70,16 @@ class GitCli
 
     # I/O
     def prompt
-        puts "Please select a position you would like to know more about."
+        puts "Would you like to see our available jop postings? (yes/no)"
+        choice = gets.chomp
+        if choice == 'yes'
+            print_jobs
+            puts "Please select a job posting by ID"
+        elsif choice == 'exit'
+            exit
+        else
+            goodbye
+        end
     end
 
     def input
@@ -85,7 +95,7 @@ class GitCli
         if answer == 'yes'
             main
         elsif answer == 'exit'
-            goodbye
+            exit
         else
             goodbye
         end
@@ -97,12 +107,15 @@ class GitCli
     
 
     #Checks if input is valid
-    def validate_id(id)
-        id = id.to_i #converts id to an integer value
+    def validate_id(answer)
+        id = answer.to_i #converts id to an integer value
+        choice = answer.to_s
         if id < 1 || id > Job.all.size
             print_error
             sleep(0.5)
             false
+        elsif choice == 'exit'
+            exit
         else
             id
         end
