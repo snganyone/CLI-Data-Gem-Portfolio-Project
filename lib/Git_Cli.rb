@@ -75,10 +75,8 @@ class GitCli
         if choice == 'yes'
             print_jobs
             puts "Please select a job posting by ID"
-        elsif choice == 'exit'
+        elsif choice == 'exit' || choice == 'no'
             exit
-        else
-            goodbye
         end
     end
 
