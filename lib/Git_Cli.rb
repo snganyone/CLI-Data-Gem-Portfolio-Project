@@ -26,7 +26,6 @@ class GitCli
     # Print Messages
 
 
-
     # Displays a welcome message
     def welcome
         puts Rainbow("Welcome to Github Jobs").indianred.bright.underline
@@ -40,7 +39,7 @@ class GitCli
     
     #Prints an Error when input is invalid
     def print_error
-        puts "Invalid selection please try again!"
+        puts Rainbow("Invalid selection please try again!").red
     end
     
     #Loops over main if user selects another job
@@ -112,7 +111,7 @@ class GitCli
             print_error
             sleep(0.5)
             false
-        elsif choice == 'exit'
+        elsif id.to_s == 'exit'
             exit
         else
             id
