@@ -5,17 +5,23 @@ class GitCli
         welcome
         spinner
         GitApi.new.create_jobs
-        print_jobs
         main
+        #Write a blog post explaining difference between each and map?
+        #After see the job list should be able to exit
+        #Should be able to see the list /(list command) after saying yes
     end
     
     def main
-        prompt
-        id = valid_id?(input)
-        job_post = job_details(id)
-        display_details(job_post)
-        continue
-        choice?(continue_search)
+        print_jobs
+        search
+        id = validate_id(input)
+        if id == false
+            main
+        else
+            job_post = job_details(id)
+            display_details(job_post)
+            choice?(continue_search)
+        end
     end
 
     # Print Messages
@@ -30,11 +36,7 @@ class GitCli
         puts Rainbow("Thanks for visiting. Goodbye...").indianred.bright.underline
     end
 
-    #Prints Job Postings
-    def print_jobs
-        listings = Job.all.each{|post| puts Rainbow("#{post.id} #{post.title}").cyan}
-    end
-
+    
     #Prints an Error when input is invalid
     def print_error
         puts "Invalid selection please try again!"
@@ -45,31 +47,9 @@ class GitCli
         puts "Would you like more information about another job posting? (yes/no)"
     end
 
-
-    # I/O
-    def prompt
-        puts "Please select a position by its number to learn more"
-    end
-
-    def input
-        gets.chomp
-    end
-
-    def continue_search
-        gets.chomp
-    end
-
-    def choice?(answer)
-        if answer == 'yes'
-            main
-        else
-            goodbye
-        end
-    end
-    
-    def job_details(id)
-        selection = Job.find_by_id(id)
-        selection
+    #Prints Job Postings
+    def print_jobs
+        Job.all.each{|post| puts Rainbow("#{post.id} #{post.title}").cyan}
     end
 
     #Displays Job Details/Information
@@ -85,20 +65,57 @@ class GitCli
         puts ""
         puts Rainbow("Description: #{post.description}").peru
         puts Rainbow("***********************************").green
+    end    
+
+    # I/O
+    def prompt
+        puts "Please select a position by its number to learn more"
+    end
+
+    def input
+        gets.chomp
+    end
+
+    def continue_search
+        continue
+        gets.chomp
+    end
+
+    def choice?(answer)
+        if answer == 'yes'
+            main
+        elsif answer == 'exit'
+            goodbye
+        else
+            goodbye
+        end
+    end
+    
+    def job_details(id)
+       Job.find_by_id(id)
     end
     
 
     #Checks if input is valid
-    def valid_id?(id)
+    def validate_id(id)
         id = id.to_i #converts id to an integer value
         if id < 1 || id > Job.all.size
             print_error
             sleep(0.5)
-            main
+            false
+        else
+            id
         end
-        id
     end
 
+
+    def search
+        prompt
+        choice = gets.chomp
+        if choice == 'exit'
+            goodbye
+        end
+    end
     # Prints a text-based "spinner" element while work occurs.
     def spinner
         spinner = Enumerator.new do |e|

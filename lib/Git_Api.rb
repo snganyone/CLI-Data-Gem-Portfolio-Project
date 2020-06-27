@@ -15,6 +15,7 @@ class GitApi
 
     def create_jobs
         self.get_response.map.with_index do |job, idx|
+            #{wer, rds}
             title = job['title']
             type = job['type']
             url = job['url']

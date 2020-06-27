@@ -17,8 +17,7 @@ class Job
     end
 
     def self.find_by_id(id)
-        idx = id.to_i - 1
-        @@all[idx]
+        @@all.find{|job| job.id == id}
     end
 
 end
