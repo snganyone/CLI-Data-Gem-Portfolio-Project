@@ -5,9 +5,11 @@ class GitCli
         welcome
         spinner
         GitApi.new.create_jobs
+        #opening_question
         main
         #After see the job list should be able to exit
         #Should be able to see the list /(list command) after saying yes/displaying job details
+        continue
     end
     
     def main
@@ -30,6 +32,10 @@ class GitCli
         puts Rainbow("Welcome to Github Jobs").indianred.bright.underline
     end
 
+    # def opening_question
+    #     puts "Would you like to see our available job postings? (yes/no)"
+    # end
+
     # Displays a goodbye message
     def goodbye
         puts Rainbow("Thanks for visiting. Goodbye...").indianred.bright.underline
@@ -44,6 +50,20 @@ class GitCli
     #Loops over main if user selects another job
     def continue
         puts "Would you like more information about another job posting? (yes/no)"
+       # puts "Would you like to see our available job postings? (yes/no)"
+        choice = gets.chomp
+        if choice == 'yes' || choice == 'list'
+            main
+        elsif choice == 'no'
+            goodbye
+            exit
+        elsif choice == 'exit' || choice == ''
+            exit
+        else
+            print_error
+            sleep 1
+            continue
+        end
     end
 
     #Prints Job Postings
@@ -68,17 +88,17 @@ class GitCli
 
     # I/O
     def prompt
-        puts "Would you like to see our available jop postings? (yes/no)"
-        choice = gets.chomp
-        if choice == 'yes' || choice == 'list'
+        # #puts "Would you like to see our available job postings? (yes/no)"
+        # choice = gets.chomp
+        # if choice == 'yes' || choice == 'list'
             print_jobs
             puts "Please select a job posting by ID"
-        elsif choice == 'no' || choice == ''    
-            goodbye
-            exit
-        elsif choice == 'exit' || choice == ''
-            exit
-        end
+        # elsif choice == 'no'
+        #     goodbye
+        #     exit
+        # elsif choice == 'exit' || choice == ''
+        #     exit
+    #end
     end
 
     def input
