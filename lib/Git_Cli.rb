@@ -76,7 +76,7 @@ class GitCli
         elsif choice == 'no'    
             goodbye
             exit
-        elsif choice == 'exit'
+        elsif choice == 'exit' || choice == ''
             exit
         end
     end
