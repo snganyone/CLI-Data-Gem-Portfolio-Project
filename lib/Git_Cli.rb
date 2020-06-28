@@ -12,9 +12,10 @@ class GitCli
     
     def main
         prompt
+        #x = gets.chomp
         id = validate_id(input)
         if id == false
-            main
+            prompt
         else
             job_post = job_details(id)
             display_details(job_post)
@@ -73,7 +74,7 @@ class GitCli
         if choice == 'yes' || choice == 'list'
             print_jobs
             puts "Please select a job posting by ID"
-        elsif choice == 'no'    
+        elsif choice == 'no' || choice == ''    
             goodbye
             exit
         elsif choice == 'exit' || choice == ''
@@ -111,7 +112,7 @@ class GitCli
     def validate_id(answer)
         id = answer.to_i #converts id to an integer value            
         type = answer.class
-        if type == String && answer == 'exit'
+        if type == String && answer == 'exit' || answer == 'no' || answer == ''
             exit
         elsif id < 1 || id > Job.all.size
             print_error
