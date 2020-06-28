@@ -6,9 +6,8 @@ class GitCli
         spinner
         GitApi.new.create_jobs
         main
-        #Write a blog post explaining difference between each and map?
         #After see the job list should be able to exit
-        #Should be able to see the list /(list command) after saying yes
+        #Should be able to see the list /(list command) after saying yes/displaying job details
     end
     
     def main
@@ -71,10 +70,13 @@ class GitCli
     def prompt
         puts "Would you like to see our available jop postings? (yes/no)"
         choice = gets.chomp
-        if choice == 'yes'
+        if choice == 'yes' || choice == 'list'
             print_jobs
             puts "Please select a job posting by ID"
-        elsif choice == 'exit' || choice == 'no'
+        elsif choice == 'no'    
+            goodbye
+            exit
+        elsif choice == 'exit'
             exit
         end
     end
@@ -91,6 +93,8 @@ class GitCli
     def choice?(answer)
         if answer == 'yes'
             main
+        elsif answer == 'list'
+            print_jobs
         elsif answer == 'exit'
             exit
         else
