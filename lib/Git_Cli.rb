@@ -12,10 +12,9 @@ class GitCli
     
     def main
         prompt
-        #x = gets.chomp
         id = validate_id(input)
         if id == false
-            prompt
+            main
         else
             job_post = job_details(id)
             display_details(job_post)
@@ -96,6 +95,7 @@ class GitCli
             main
         elsif answer == 'list'
             print_jobs
+            main
         elsif answer == 'exit'
             exit
         else
