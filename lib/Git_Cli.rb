@@ -105,14 +105,14 @@ class GitCli
 
     #Checks if input is valid
     def validate_id(answer)
-        id = answer.to_i #converts id to an integer value
-        choice = answer.to_s
-        if id < 1 || id > Job.all.size
+        id = answer.to_i #converts id to an integer value            
+        type = answer.class
+        if type == String && answer == 'exit'
+            exit
+        elsif id < 1 || id > Job.all.size
             print_error
             sleep(0.5)
             false
-        elsif id.to_s == 'exit'
-            exit
         else
             id
         end
